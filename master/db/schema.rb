@@ -11,12 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120192020) do
+ActiveRecord::Schema.define(version: 20141120203246) do
 
   create_table "availabilities", force: true do |t|
     t.datetime "date_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "organization_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "needs", force: true do |t|
+    t.integer  "skill_id"
+    t.integer  "opportunity_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "opportunities", force: true do |t|
+    t.string   "name"
+    t.datetime "datetime"
+    t.integer  "organization_id"
+    t.integer  "volunteer_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "organizations", force: true do |t|
@@ -25,13 +43,20 @@ ActiveRecord::Schema.define(version: 20141120192020) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "proficiencies", force: true do |t|
+    t.integer  "volunteer_id"
+    t.integer  "skill_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "skills", force: true do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: true do |t|
+  create_table "volunteers", force: true do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
