@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Skill.create(name: "Reading")
+Skill.create(name: "Writing")
+Skill.create(name: "Heavy Lifting")
+Skill.create(name: "Submarining")
+
+Volunteer.create(name: "Draisy")
+Volunteer.create(name: "Tom")
+Volunteer.create(name: "Sam")
+
+Organization.create(name: "Habitat for Humanity")
+Organization.create(name: "Red Cross")
+Organization.create(name: "GoodWill")
+

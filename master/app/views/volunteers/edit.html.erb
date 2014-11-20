@@ -1,0 +1,13 @@
+
+<h1>Get ready to help out!</h1>
+<%= form_for @volunteer do |f| %>
+<%= f.label "Where would you like to help?" %>
+<!-- <%= f.text_field :location %><br> -->
+<input type="checkbox" val="Queens">Queens 
+<input type="checkbox" val="Brooklyn">Brooklyn<br>
+<%= f.label "When would you like to help?" %>
+<%= f.text_field :datetime %><br>
+<%= f.label "What skills do you have?" %><br>
+<%= collection_check_boxes :proficiencies, :skill_ids, Skill.all, :id, :name %><br>
+<%= f.submit %>
+<% end %>

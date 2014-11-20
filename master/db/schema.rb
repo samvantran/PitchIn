@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20141120203246) do
 
   create_table "volunteers", force: true do |t|
     t.string   "name"
+    t.datetime "datetime"
+    t.string   "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
