@@ -16,7 +16,8 @@ Volunteer.create(name: "Draisy")
 Volunteer.create(name: "Tom")
 Volunteer.create(name: "Sam")
 
-Organization.create(name: "Habitat for Humanity")
-Organization.create(name: "Red Cross")
-Organization.create(name: "GoodWill")
+org1 = Organization.create(name: "Habitat for Humanity")
+org2 = Organization.create(name: "Red Cross")
+org3 = Organization.create(name: "GoodWill")
 
+# org1.opportunities.build(name: "Build a House in Africa", datetime:2014-11-21 09:06:55 -0500))

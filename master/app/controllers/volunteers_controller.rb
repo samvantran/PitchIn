@@ -1,5 +1,4 @@
 
-require'pry'
 class VolunteersController < ApplicationController
   def new
     @volunteer = Volunteer.new
@@ -17,8 +16,6 @@ class VolunteersController < ApplicationController
 
   def edit
     @volunteer = Volunteer.find(params[:id])
-    
-
   end
 
   def show
@@ -30,10 +27,15 @@ class VolunteersController < ApplicationController
   end
 
   def update
+    raise params.inspect
+    @volunteer = Volunteer.find(params[:id])
+    @volunteer.update(volunteer_params)
+    @volunteer.skills.build(params[:proficiencies][:skills_id])
+    raise @volunteer.inspect
   end
 
   private
     def volunteer_params
-      params.require(:volunteer).permit(:name)
+      params.require(:volunteer).permit(:name, :location, :datetime, :proficiencies[:skills_id] => [])
     end
 end
