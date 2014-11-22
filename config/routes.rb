@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  
+
   root 'root#index'
   
   resources :volunteers
   resources :organizations do
     resources :opportunities
   end
+
+  post '/volunteers/:id/final' => 'volunteers#final', as: :final_volunteer
 
 
   # The priority is based upon order of creation: first created -> highest priority.

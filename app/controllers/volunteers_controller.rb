@@ -24,14 +24,22 @@ class VolunteersController < ApplicationController
     @matches = get_matching_opportunities(@volunteer, @opportunities)
   end
 
-  def destroy
-  end
-
   def update
     volunteer = Volunteer.find(params[:id])
     volunteer.update(volunteer_params)
 
     redirect_to volunteer_path(volunteer) 
+  end
+
+  def destroy
+  end
+
+  def final
+    volunteer = Volunteer.find(params[:id])
+    @opportunity = Opportunity.find(params[:opportunity_id])
+    
+    @opportunity.volunteer_id = volunteer.id
+    @opportunity.save
   end
 
   def get_matching_opportunities(volunteer, opportunities)
