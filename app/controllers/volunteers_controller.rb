@@ -9,9 +9,9 @@ class VolunteersController < ApplicationController
   end
 
   def create
-    @volunteer = Volunteer.find_by(volunteer_params)
-
-    redirect_to edit_volunteer_path(@volunteer)
+    @volunteer = Volunteer.new(volunteer_params)
+    #@volunteer = Volunteer.find_by(volunteer_params)
+    redirect_to edit_volunteer_path(@volunteer) if @volunteer.save
   end
 
   def edit
