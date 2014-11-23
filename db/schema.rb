@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120203246) do
+ActiveRecord::Schema.define(version: 20141123205455) do
 
   create_table "availabilities", force: true do |t|
     t.datetime "date_time"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20141120203246) do
     t.string   "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "provider"
+    t.string   "uid"
   end
 
 end

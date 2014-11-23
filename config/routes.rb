@@ -1,19 +1,18 @@
 Rails.application.routes.draw do
 
   root 'root#index'
-  
+
   resources :volunteers
   resources :organizations do
     resources :opportunities
   end
 
   post '/volunteers/:id/final' => 'volunteers#final', as: :final_volunteer
-  get '/auth/:facebook/callback', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  post   '/sessions', to: 'sessions#create'
+  delete '/sessions', to: 'sessions#destroy', as: 'logout'
 
-  get '/auth/:provider/callback' => 'sessions#create'
-  get '/signin' => 'sessions#new', :as => :signin
-  get '/signout' => 'sessions#destroy', :as => :signout
-  get '/auth/failure' => 'sessions#failure'
+  resources :sessions
 
 
   # The priority is based upon order of creation: first created -> highest priority.

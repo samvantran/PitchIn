@@ -1,26 +1,18 @@
 class SessionsController < ApplicationController
 
-  def new
-    raise params.inspect
-    redirect_to '/auth/facebook'
-  end
-
-  def create
-    auth = request.env["omniauth.auth"]
-    user = User.where(:provider => auth['provider'],
-                      :uid => auth['uid'].to_s).first || User.create_with_omniauth(auth)
-    reset_session
-    session[:user_id] = user.id
-    redirect_to root_url, :notice => 'Signed in!'
+ def create
+    user = Volunteer.find_or_create_from_auth_hash(self.auth_hash)
+    login(user)
+    redirect_to root_path
   end
 
   def destroy
     reset_session
-    redirect_to root_url, :notice => 'Signed out!'
-  end
+    redirect_to root_path
+  end 
 
-  def failure
-    redirect_to root_url, :alert => "Authentication error: #{params[:message].humanize}"
-  end
-
+  protected
+    def auth_hash
+      request.env['omniauth.auth']
+    end
 end
