@@ -9,10 +9,10 @@ Rails.application.routes.draw do
 
   post '/volunteers/:id/final' => 'volunteers#final', as: :final_volunteer
   get '/auth/:provider/callback', to: 'sessions#create'
-  post   '/sessions', to: 'sessions#create'
+  #post   '/sessions', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy', as: 'logout'
 
-  resources :sessions
+  #resources :sessions
 
 
   # The priority is based upon order of creation: first created -> highest priority.
