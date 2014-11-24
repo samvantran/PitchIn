@@ -15,17 +15,17 @@ class VolunteersController < ApplicationController
   end
 
   def edit
-    @volunteer = Volunteer.find(params[:id])
+    @volunteer = Volunteer.find(session[:volunteer_id])
   end
 
   def show
-    @volunteer = Volunteer.find(params[:id])
+    @volunteer = Volunteer.find(session[:volunteer_id])
     @opportunities = Opportunity.all
     @matches = get_matching_opportunities(@volunteer, @opportunities)
   end
 
   def update
-    volunteer = Volunteer.find(params[:id])
+    volunteer = Volunteer.find(session[:volunteer_id])
     volunteer.update(volunteer_params)
 
     redirect_to volunteer_path(volunteer) 
@@ -35,7 +35,7 @@ class VolunteersController < ApplicationController
   end
 
   def final
-    volunteer = Volunteer.find(params[:id])
+    volunteer = Volunteer.find(session[:volunteer_id])
     @opportunity = Opportunity.find(params[:opportunity_id])
     
     @opportunity.volunteer_id = volunteer.id
