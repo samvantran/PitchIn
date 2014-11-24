@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
 
- def create
+ def index
+    raise auth_hash.inspect
     user = Volunteer.find_or_create_from_auth_hash(self.auth_hash)
     login(user)
-    redirect_to root_path
+    redirect_to volunteer_path
   end
 
   def destroy
