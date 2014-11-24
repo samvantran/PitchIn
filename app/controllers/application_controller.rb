@@ -17,6 +17,5 @@ private
       User.find(session[:volunteer_id]) if session[:volunteer_id]
     end
 
-
     helper_method :logged_in?, :current_user, :login
 end

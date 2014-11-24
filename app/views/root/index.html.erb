@@ -1,9 +1,10 @@
 
-    <header style="background-image: url('../../public/img/bg-header.jpg');">
+    <header style="background-image: url('img/bg-header.jpg')">
         <div class="intro-content">
+        <%= image_tag("/img/profile.png", class: "img-responsive img-centered") %>
             <div class="brand-name">WANT TO PITCH IN?</div>
             <hr class="colored">
-            <button type="submit" class="btn btn-outline-light" id="volunteer"><a href="https://www.facebook.com/dialog/oauth?client_id=744650868941998&redirect_uri=http://localhost:3000/sessions">Login with Fauxbook</a></button>
+            <button type="submit" class="btn btn-outline-light" id="volunteer"><a href="/auth/facebook">Login with Facebook</a></button>
             <button type="submit" class="btn btn-outline-light" id="organization">Do You Need Volunteers?</button>
             <body id="page-top">
         </div>
@@ -11,7 +12,7 @@
             <a class="btn" href="#about"><i class="fa fa-angle-down fa-fw"></i></a>
         </div>
     </header>
-<!-- 
+
     <section id="about">
         <div class="container-fluid">
             <div class="row text-center">
@@ -52,7 +53,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <section class="bg-gray">
         <div class="container text-center wow fadeIn">
