@@ -1,2 +1,15 @@
 <h1>Opportunities#new</h1>
-<p>Find me in app/views/opportunities/new.html.erb</p>
+
+<%= form_for @opportunity, url: {action: "create"} do |f| %>
+<%= f.label "Name of Opportunity", :name %>
+<%= f.text_field :name %><br>
+
+<%= f.label "What date is your event?" %><br>
+  <% Date.today.upto(Date.today.next_day(6)).each do |day| %>
+    <%= radio_button "opportunity", "datetime", day %><%= day.strftime("%B %d, %Y") %><br>
+  <% end %>
+
+  <%= f.label "What skills do you need? " %><br>
+  <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name %><br>
+<%= f.submit %>
+<% end %>

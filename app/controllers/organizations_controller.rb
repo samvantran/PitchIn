@@ -13,6 +13,10 @@ class OrganizationsController < ApplicationController
   end
 
   def new
+    @organization = Organization.new
+    session[:is_organization] = true
+
+    redirect_to '/auth/facebook'
   end
 
   def index

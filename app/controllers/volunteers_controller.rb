@@ -2,6 +2,9 @@
 class VolunteersController < ApplicationController
   def new
     @volunteer = Volunteer.new
+    session[:is_organization] = false
+
+    redirect_to '/auth/facebook'
   end
 
   def index
