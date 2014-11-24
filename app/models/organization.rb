@@ -4,7 +4,6 @@ class Organization < ActiveRecord::Base
 
   validates :uid, :uniqueness => {:scope => :provider}
 
-
   def self.find_or_create_from_auth_hash(auth_hash)
     find_by_omniauth(auth_hash) || create_with_omniauth(auth_hash)
   end

@@ -3,12 +3,12 @@ class SessionsController < ApplicationController
  def create
   if session[:is_organization] == false
     user = Volunteer.find_or_create_from_auth_hash(self.auth_hash)
-    login(user)
+    login(user, "volunteer")
     redirect_to edit_volunteer_path(user)
   else
     user = Organization.find_or_create_from_auth_hash(self.auth_hash)
-    login(user)
-    redirect_to organization_path(user)
+    login(user, "organization")
+    redirect_to organization_opportunities_path(user)
   end
 end
 

@@ -1,16 +1,4 @@
 class OrganizationsController < ApplicationController
-  def show
-    @organization = Organization.find(params[:id])
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
 
   def new
     @organization = Organization.new
@@ -20,5 +8,19 @@ class OrganizationsController < ApplicationController
   end
 
   def index
+    @organizations = Organization.all
+  end
+
+  def show
+    @organization = Organization.find(params[:organization_id])
+  end
+
+  def create
+  end
+
+  def edit
+  end
+
+  def destroy
   end
 end

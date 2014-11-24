@@ -1,2 +1,10 @@
-<h1>Opportunities#index</h1>
-<p>Find me in app/views/opportunities/index.html.erb</p>
+<h1>Organization Name: <%= @organization.name %></h1>
+
+These are all your opportunities:
+<ul>
+  <% @organization.opportunities.each do |o| %>
+    <li><%= o.name %> on <%= o.datetime.strftime("%B %d, %Y")  %></li>
+    <% end %>
+</ul>
+
+<button><%= link_to "Add New Opportunity", new_organization_opportunity_path(@organization) %></button>

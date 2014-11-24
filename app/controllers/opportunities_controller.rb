@@ -1,5 +1,6 @@
 class OpportunitiesController < ApplicationController
   def index
+    @organization = Organization.find(params[:organization_id])
   end
 
   def new
@@ -11,12 +12,11 @@ class OpportunitiesController < ApplicationController
   end
 
   def create
-    opportunity = Opportunity.create(opportunity_params)
-    opportunity.organization_id = params[:organization_id]
-    opportunity.save
-    raise opportunity.inspect
+    org = Organization.find(params[:organization_id])
+    org.opportunities.build(opportunity_params)
+    org.save
 
-    redirect_to 
+    redirect_to organization_opportunities_path(org)
   end
 
   def update
