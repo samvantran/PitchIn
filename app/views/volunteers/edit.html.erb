@@ -1,5 +1,8 @@
-<h3>Welcome <%= @volunteer.name %></h3>
-<h1>Get ready to help out!</h1>
+<h3>Hi <%= @volunteer.name %></h3>
+
+<h4>Get ready to help out!</h4>
+
+<p>Currently, you have not signed up for any volunteer opportunities. Please answer the following three questions and we'll show you a list of available opportunities to choose from!</p>
 
 <%= form_for @volunteer do |f| %>
   <%= f.label "Where would you like to help?" %><br>

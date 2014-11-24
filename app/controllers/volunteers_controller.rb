@@ -39,9 +39,7 @@ class VolunteersController < ApplicationController
 
   def final
     volunteer = Volunteer.find(session[:volunteer_id])
-    @opportunity = Opportunity.find(params[:opportunity_id])
-    
-    @opportunity.volunteer_id = volunteer.id
+    @opportunity = volunteer.opportunity
     @opportunity.save
   end
 

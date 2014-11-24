@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   post '/volunteers/:id/final' => 'volunteers#final', as: :final_volunteer
+  get '/volunteers/:id/final' => 'volunteers#final'
   get '/auth/:provider/callback', to: 'sessions#create'
   #post   '/sessions', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy', as: 'logout'
