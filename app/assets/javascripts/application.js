@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require js/plugins/retina/retina
-//= require js/bootstrap/bootstrap
 //= require js/plugins/jquery.magnific-popup/jquery.magnific-popup
 //= require js/plugins/owl-carousel/owl.carousel
 //= require js/plugins/wow/wow
@@ -27,4 +25,5 @@
 //= require js/jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap-sprockets
+
