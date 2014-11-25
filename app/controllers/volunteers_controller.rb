@@ -13,7 +13,6 @@ class VolunteersController < ApplicationController
 
   def create
     @volunteer = Volunteer.new(volunteer_params)
-    #@volunteer = Volunteer.find_by(volunteer_params)
     redirect_to edit_volunteer_path(@volunteer) if @volunteer.save
   end
 
@@ -21,27 +20,22 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(session[:volunteer_id])
   end
 
-  def show
+  def options
     @volunteer = Volunteer.find(session[:volunteer_id])
     @opportunities = Opportunity.all
     @matches = get_matching_opportunities(@volunteer, @opportunities)
   end
 
-  def update
-    volunteer = Volunteer.find(session[:volunteer_id])
-    volunteer.update(volunteer_params)
-
-    redirect_to volunteer_path(volunteer) 
-  end
-
-  def destroy
+  def show
+    @volunteer = Volunteer.find(session[:volunteer_id])
   end
 
   def final
-    volunteer = Volunteer.find(session[:volunteer_id])
+    @volunteer = Volunteer.find(session[:volunteer_id])
     @opportunity = Opportunity.find(params[:opportunity_id])
-    
-    @opportunity.volunteer_id = volunteer.id
+    @opportunity.volunteer_id = @volunteer.id
+    @volunteer.opportunity = @opportunity
+    @volunteer.save
     @opportunity.save
   end
 
@@ -53,9 +47,6 @@ class VolunteersController < ApplicationController
       end
     end
     return matching_opportunities[0..2]
-
-    # eventually want to write a SQL statement to retrieve results
-    # Volunteer.joins(:opportunties).where("opportunity.skills.include?(volunteer.skills.any?)")
   end
 
   def volunteer_is_available(volunteer, opportunity)
