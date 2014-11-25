@@ -10,14 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require css/font-awesome
  *= require bootstrap
- *= require animate
- *= require jquery.fs.wallpaper
- *= require magnific-popup
+ *= require css/font-awesome
  *= require owl-carousel/owl.carousel
  *= require owl-carousel/owl.theme
  *= require owl-carousel/owl.transitions
+ *= require magnific-popup
+ *= require jquery.fs.wallpaper
  *= require vitality-red
- *= require_self
+ *= require animate
  */
