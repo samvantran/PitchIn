@@ -1,72 +1,37 @@
-<h3>Hi <%= @volunteer.name %></h3>
+<%= render 'center' %>
+  <h3>Hi <%= @volunteer.name %></h3>
 
-<% if @volunteer.opportunity != nil %>
+  <% if @volunteer.opportunity != nil %>
 
-  <p>Currently, you have signed up for <strong><%= @volunteer.opportunity.name %></strong> on <strong><%= @volunteer.opportunity.datetime.strftime("%B %d, %Y") %></strong>.</p>
-  <p>If you would like to sign up for a different event, please edit the details below:</p>
+    <p>Currently, you have signed up for <strong><%= @volunteer.opportunity.name %></strong> on <strong><%= @volunteer.opportunity.datetime.strftime("%B %d, %Y") %></strong>.</p>
+    <p>If you would like to sign up for a different event, please edit the details below:</p>
 
-<% else %>
+  <% else %>
 
-  <p>Currently, you have not signed up for any volunteer opportunities. Please answer the following three questions and we'll show you a list of available opportunities to choose from!</p>
+    <p>Currently, you have not signed up for any volunteer opportunities. Please answer the following three questions and we'll show you a list of available opportunities to choose from!</p>
 
-<% end %>
-
-    <section id="about">
-        <div class="container-fluid">
-            <div class="row text-center">
-                <div class="col-lg-12 wow fadeIn">
-                    <h1>A Theme for Creatives &amp; Agencies</h1>
-                    <p>Vitality is the perfect theme for a freelance professional or an agency.</p>
-                    <hr class="colored">
-                </div>
-            </div>
-            <div class="row text-center content-row">
-                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".2s">
-                    <div class="about-content">
-                        <i class="fa fa-eye fa-4x"></i>
-                        <h3>Retina Ready</h3>
-                        <p>This theme includes the retina.js plugin for easy retina image support so your images and graphics will look great on mobile devices!</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".4s">
-                    <div class="about-content">
-                        <i class="fa fa-edit fa-4x"></i>
-                        <h3>Easy to Edit</h3>
-                        <p>Vitality is built using Bootstrap 3, and is easy to edit and customize. LESS files are included as well for deeper customization.</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".6s">
-                    <div class="about-content">
-                        <i class="fa fa-tablet fa-4x"></i>
-                        <h3>Responsive</h3>
-                        <p>When building this theme, we've paid close attention to how it looks on various screen sizes. Try it out on a phone or tablet!</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".8s">
-                    <div class="about-content">
-                        <i class="fa fa-heart fa-4x"></i>
-                        <h3>Built with Love</h3>
-                        <p>All of our themes are crafted with care, and we strive to make your experience as one of our customers the best as possible.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-<%= form_for @volunteer, :style => "text-align:center;", :url => volunteer_options_path(@volunteer) do |f| %>
-  <%= f.label "Where would you like to help?" %><br>
-  <% ["Queens", "Brooklyn", "Manhattan", "Bronx", "Staten Island"].each do |borough| %>
-    <%= radio_button "volunteer", "location", borough %><%= borough %><br>
   <% end %>
 
-  <%= f.label "When would you like to help?" %><br>
-  <% Date.today.upto(Date.today.next_day(6)).each do |day| %>
-    <%= radio_button "volunteer", "datetime", day %><%= day.strftime("%B %d, %Y") %><br>
+  <%= form_for @volunteer, :style => "text-align:center;", :url => volunteer_options_path(@volunteer) do |f| %>
+    <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
+      <%= f.label "Where would you like to help?" %><br>
+      <% ["Queens", "Brooklyn", "Manhattan", "Bronx", "Staten Island"].each do |borough| %>
+      <%= radio_button "volunteer", "location", borough %><%= borough %>
+    <% end %>
+    </div>
+
+    <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
+    <%= f.label "When would you like to help?" %><br>
+    <% Date.today.upto(Date.today.next_day(6)).each do |day| %>
+      <%= radio_button "volunteer", "datetime", day %><%= day.strftime("%B %d, %Y") %><br>
+    <% end %>
+    </div>
+
+    <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
+    <%= f.label "What skills do you have?" %><br>
+    <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name %>
+    <br>
+    <%= f.submit "Update Details" %>
+    </div>
   <% end %>
-
-
-  <%= f.label "What skills do you have?" %><br>
-  <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name %><br>
-  <%= f.submit %>
-<% end %>
+<%= render 'center_close' %>
