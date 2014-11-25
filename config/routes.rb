@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/volunteers/:id/final' => 'volunteers#final', as: :final_volunteer
   get '/volunteers/:id/final' => 'volunteers#final'
   get '/volunteers/:id/options' => 'volunteers#options', as: :volunteer_options
-  patch '/volunteers/:id/options' => 'volunteers#update'
+  patch '/volunteers/:id/options' => 'volunteers#options'
   get '/auth/:provider/callback', to: 'sessions#create'
 
   #post   '/sessions', to: 'sessions#create'
