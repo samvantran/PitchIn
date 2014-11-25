@@ -1,64 +1,24 @@
+<%= render 'center' %>
 
 <h1>Check out these opportunities!</h1>
-<h3>Which one would you like to participate in?</h3>
+<p>Which one would you like to participate in?</p>
+<hr class="colored">
+</div>
+<div class="row text-center content-row">
 <% @matches.each_with_index do |match, idx| %>
-
-  <div class="owl-item" style="width: 380px;">
+<div class="col-md-4 col-sm-6 wow fadeIn" data-wow-delay=".2s">
     <div class="item">
       <!-- <img src="/public/img/people/<%= idx +1 %>.jpg" class="img-responsive" alt=""> -->
       <div class="caption">
-        <h3><%= match.name %></h3>
-        <hr class="colored">
+        <h3><%= match.organization.name %></h3>
+        <h4><%= match.name %></h4>
         <p><%= match.datetime.strftime("%B %d, %Y") %></p>
-
-        <%= button_to [:final, @volunteer], { :name => :opportunity_id, :value => match.id } do %>
-          <%= match.name %> on <%= match.datetime.strftime("%B %d, %Y") %>
+        <%= button_to [:final, @volunteer], { :name => :opportunity_id, :value => match.id, :class => "btn btn-outline-dark" } do %>
+          Register for <%= match.name %>!
         <% end %>
       </div>
     </div>
   </div>
 <% end %>
 
-    <section id="about">
-        <div class="container-fluid">
-            <div class="row text-center">
-                <div class="col-lg-12 wow fadeIn">
-                    <h1>A Theme for Creatives &amp; Agencies</h1>
-                    <p>Vitality is the perfect theme for a freelance professional or an agency.</p>
-                    <hr class="colored">
-                </div>
-            </div>
-            <div class="row text-center content-row">
-                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".2s">
-                    <div class="about-content">
-                        <i class="fa fa-eye fa-4x"></i>
-                        <h3>Retina Ready</h3>
-                        <p>This theme includes the retina.js plugin for easy retina image support so your images and graphics will look great on mobile devices!</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".4s">
-                    <div class="about-content">
-                        <i class="fa fa-edit fa-4x"></i>
-                        <h3>Easy to Edit</h3>
-                        <p>Vitality is built using Bootstrap 3, and is easy to edit and customize. LESS files are included as well for deeper customization.</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".6s">
-                    <div class="about-content">
-                        <i class="fa fa-tablet fa-4x"></i>
-                        <h3>Responsive</h3>
-                        <p>When building this theme, we've paid close attention to how it looks on various screen sizes. Try it out on a phone or tablet!</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 wow fadeIn" data-wow-delay=".8s">
-                    <div class="about-content">
-                        <i class="fa fa-heart fa-4x"></i>
-                        <h3>Built with Love</h3>
-                        <p>All of our themes are crafted with care, and we strive to make your experience as one of our customers the best as possible.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+<%= render 'center_close' %>
