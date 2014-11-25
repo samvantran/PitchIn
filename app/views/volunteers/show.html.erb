@@ -1,28 +1,30 @@
-<h3>Hi <%= @volunteer.name %></h3>
+<%= render 'center' %>
+  <h3>Hi <%= @volunteer.name %></h3>
 
-<% if @volunteer.opportunity != nil %>
+  <% if @volunteer.opportunity != nil %>
 
-  <p>Currently, you have signed up for <strong><%= @volunteer.opportunity.name %></strong> on <strong><%= @volunteer.opportunity.datetime.strftime("%B %d, %Y") %></strong>.</p>
-  <p>If you would like to sign up for a different event, please edit the details below:</p>
+    <p>Currently, you have signed up for <strong><%= @volunteer.opportunity.name %></strong> on <strong><%= @volunteer.opportunity.datetime.strftime("%B %d, %Y") %></strong>.</p>
+    <p>If you would like to sign up for a different event, please edit the details below:</p>
 
-<% else %>
+  <% else %>
 
-  <p>Currently, you have not signed up for any volunteer opportunities. Please answer the following three questions and we'll show you a list of available opportunities to choose from!</p>
+    <p>Currently, you have not signed up for any volunteer opportunities. Please answer the following three questions and we'll show you a list of available opportunities to choose from!</p>
 
-<% end %>
-
-<%= form_for @volunteer, :style => "text-align:center;", :url => volunteer_options_path(@volunteer) do |f| %>
-  <%= f.label "Where would you like to help?" %><br>
-  <% ["Queens", "Brooklyn", "Manhattan", "Bronx", "Staten Island"].each do |borough| %>
-    <%= radio_button "volunteer", "location", borough %><%= borough %><br>
   <% end %>
 
-  <%= f.label "When would you like to help?" %><br>
-  <% Date.today.upto(Date.today.next_day(6)).each do |day| %>
-    <%= radio_button "volunteer", "datetime", day %><%= day.strftime("%B %d, %Y") %><br>
-  <% end %>
+  <%= form_for @volunteer, :style => "text-align:center;", :url => volunteer_options_path(@volunteer) do |f| %>
+    <%= f.label "Where would you like to help?" %><br>
+    <% ["Queens", "Brooklyn", "Manhattan", "Bronx", "Staten Island"].each do |borough| %>
+      <%= radio_button "volunteer", "location", borough %><%= borough %><br>
+    <% end %>
 
-  <%= f.label "What skills do you have?" %><br>
-  <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name %><br>
-  <%= f.submit %>
-<% end %>
+    <%= f.label "When would you like to help?" %><br>
+    <% Date.today.upto(Date.today.next_day(6)).each do |day| %>
+      <%= radio_button "volunteer", "datetime", day %><%= day.strftime("%B %d, %Y") %><br>
+    <% end %>
+
+    <%= f.label "What skills do you have?" %><br>
+    <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name %><br>
+    <%= f.submit %>
+  <% end %>
+<%= render 'center_close' %>
