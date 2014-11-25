@@ -13,18 +13,25 @@
   <% end %>
 
   <%= form_for @volunteer, :style => "text-align:center;", :url => volunteer_options_path(@volunteer) do |f| %>
-    <%= f.label "Where would you like to help?" %><br>
-    <% ["Queens", "Brooklyn", "Manhattan", "Bronx", "Staten Island"].each do |borough| %>
-      <%= radio_button "volunteer", "location", borough %><%= borough %><br>
+    <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
+      <%= f.label "Where would you like to help?" %><br>
+      <% ["Queens", "Brooklyn", "Manhattan", "Bronx", "Staten Island"].each do |borough| %>
+      <%= radio_button "volunteer", "location", borough %><%= borough %>
     <% end %>
+    </div>
 
+    <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
     <%= f.label "When would you like to help?" %><br>
     <% Date.today.upto(Date.today.next_day(6)).each do |day| %>
       <%= radio_button "volunteer", "datetime", day %><%= day.strftime("%B %d, %Y") %><br>
     <% end %>
+    </div>
 
+    <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
     <%= f.label "What skills do you have?" %><br>
-    <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name %><br>
-    <%= f.submit %>
+    <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name %>
+    <br>
+    <%= f.submit "Update Details" %>
+    </div>
   <% end %>
 <%= render 'center_close' %>
