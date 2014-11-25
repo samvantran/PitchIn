@@ -1,7 +1,7 @@
 
-    <header style="background-image: url('img/bg-header.jpg')">
+    <header style="background-image: url('<%= image_path('bg-header.jpg') %>')">
         <div class="intro-content">
-        <%= image_tag("/img/profile.png", class: "img-responsive img-centered") %>
+        <%= image_tag("profile.png", class: "img-responsive img-centered") %>
             <div class="brand-name">WANT TO PITCH IN?</div>
             <hr class="colored">
             <button type="submit" class="btn btn-outline-light" id="volunteer"><a href="/volunteers/new">Login with Facebook</a></button>
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h2>Our Team</h2>
-                    <p>We are a group of digital marketers with a passion for great art that serves a practical purpose.</p>
+                    <p>We are a group of digital marketers with a passion for great art that serves a practical purpose PLOW PLOW.</p>
                     <hr class="colored">
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <div class="col-lg-12">
                     <div class="about-carousel">
                         <div class="item">
-                            <img src="assets/img/people/1.jpg" class="img-responsive" alt="">
+                            <%= image_tag("people/1.jpg", class: "img-responsive") %>
                             <div class="caption">
                                 <h3>Patricia West</h3>
                                 <hr class="colored">
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="assets/img/people/2.jpg" class="img-responsive" alt="">
+                            <%= image_tag("people/2.jpg", class: "img-responsive") %>
                             <div class="caption">
                                 <h3>Howard Scott</h3>
                                 <hr class="colored">
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="assets/img/people/3.jpg" class="img-responsive" alt="">
+                            <%= image_tag("people/3.jpg", class: "img-responsive") %>
                             <div class="caption">
                                 <h3>Kate Williams</h3>
                                 <hr class="colored">
@@ -188,7 +188,7 @@
             </div>
         </div>
     </aside>
-
+<!--FROM HERE
     <section id="process" class="services">
         <div class="container">
             <div class="row text-center">
@@ -525,8 +525,9 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section> TILL HERE, BUT I DIDN'T ADD THIS TAG-->
 
+<!-- MORE HERE
     <section class="testimonials bg-gray">
         <div class="container wow fadeIn">
             <div class="row">
@@ -649,7 +650,7 @@
             </div>
         </div>
     </section>
-
+TILL HERE-->
     <section id="contact">
         <div class="container wow fadeIn">
             <div class="row">
@@ -702,8 +703,6 @@
             </div>
         </div>
     </section>
-
-    <a href="https://wrapbootstrap.com/theme/vitality-multipurpose-one-page-theme-WB02K3KK3" class="btn btn-block btn-full-width">Buy Vitality Now!</a>
 
     <footer class="footer" style="background-image: url('assets/img/bg-footer.jpg')">
         <div class="container text-center">

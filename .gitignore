@@ -1,0 +1,4 @@
+/log/*
+/data/sql/*
+/tmp/*
+/db/development.sqlite3

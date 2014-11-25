@@ -10,6 +10,20 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require js/bootstrap/bootstrap
+//= require js/plugins/jquery.magnific-popup/jquery.magnific-popup
+//= require js/plugins/owl-carousel/owl.carousel
+//= require js/plugins/retina/retina
+//= require js/plugins/wow/wow
+//= require js/plugins/cbpAnimatedHeader
+//= require js/plugins/classie
+//= require js/plugins/jqBootstrapValidation
+//= require js/plugins/jquery.easing.min
+//= require js/plugins/jquery.fs.wallpaper
+//= require js/plugins/jquery.mixitup
+//= require js/contact_me
+//= require js/vitality
+//= require js/jquery
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
