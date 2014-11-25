@@ -11,7 +11,6 @@
 
 <% end %>
 
-<<<<<<< HEAD
     <section id="about">
         <div class="container-fluid">
             <div class="row text-center">
@@ -54,7 +53,7 @@
         </div>
     </section>
 
-=======
+
 <%= form_for @volunteer, :style => "text-align:center;", :url => volunteer_options_path(@volunteer) do |f| %>
   <%= f.label "Where would you like to help?" %><br>
   <% ["Queens", "Brooklyn", "Manhattan", "Bronx", "Staten Island"].each do |borough| %>
@@ -65,7 +64,7 @@
   <% Date.today.upto(Date.today.next_day(6)).each do |day| %>
     <%= radio_button "volunteer", "datetime", day %><%= day.strftime("%B %d, %Y") %><br>
   <% end %>
->>>>>>> 7cc6a5276c036519230b3705649171b4f9233341
+
 
   <%= f.label "What skills do you have?" %><br>
   <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name %><br>
