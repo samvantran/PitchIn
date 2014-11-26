@@ -1,11 +1,15 @@
-<h1>Organization Name: <%= @organization.name %></h1>
+<h1 style="margin-top:120px">Organization Name: <%= @organization.name %></h1>
  <%= image_tag @organization.photo %>
-
-These are all your opportunities:
+ <div style="width:100%" >
+<div style="margin-left:35%">
+<h3>These are all your opportunities:</h3>
 <ul>
   <% @organization.opportunities.each do |o| %>
     <li><%= o.name %> on <%= o.datetime.strftime("%B %d, %Y")  %></li>
     <% end %>
 </ul>
-
-<button><%= link_to "Add New Opportunity", new_organization_opportunity_path(@organization) %></button>
+<div style="margin-left:10%">
+<button style="margin-bottom: 15px"><%= link_to "Add New Opportunity", new_organization_opportunity_path(@organization) %></button>
+</div>
+</div>
+</div>

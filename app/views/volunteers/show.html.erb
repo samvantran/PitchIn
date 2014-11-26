@@ -1,39 +1,47 @@
 
 <%= render 'center' %>
-  <h3>Hi <%= @volunteer.name %></h3>
+<div style="width:30%; margin:0 auto;">
+  <h3 style="float:left">Hi <%= @volunteer.name %></h3>
   <%= image_tag @volunteer.photo %>
+</div>
 
   <% if @volunteer.opportunity != nil %>
-
-    <p>Currently, you have signed up for <strong><%= @volunteer.opportunity.name %></strong> on <strong><%= @volunteer.opportunity.datetime.strftime("%B %d, %Y") %></strong>.</p>
+  <div class="show-text">
+    <p>Currently, you signed up for <strong><%= @volunteer.opportunity.name %></strong> on <strong><%= @volunteer.opportunity.datetime.strftime("%B %d, %Y") %></strong>.</p>
     <p>If you would like to sign up for a different event, please edit the details below:</p>
+  </div>
 
   <% else %>
-
+  <div class="show-text">
     <p>Currently, you have not signed up for any volunteer opportunities. Please answer the following three questions and we'll show you a list of available opportunities to choose from!</p>
-
+  </div>
   <% end %>
 
-  <%= form_for @volunteer, :style => "text-align:center;", :url => volunteer_options_path(@volunteer) do |f| %>
-    <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
-      <%= f.label "Where would you like to help?" %><br>
-      <% ["Queens", "Brooklyn", "Manhattan", "Bronx", "Staten Island"].each do |borough| %>
-      <%= radio_button "volunteer", "location", borough %><%= borough %>
-    <% end %>
-    </div>
+    <%= form_for @volunteer, :style => "text-align:center;", :url => volunteer_options_path(@volunteer) do |f| %>
+          <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
+            <%= f.label "Where would you like to help?" %><br>
+            <% ["Queens", "Brooklyn", "Manhattan", "Bronx", "Staten Island"].each do |borough| %>
+              <div style="margin-right:5px; display:inline-block">
+                <%= radio_button "volunteer", "location", borough %><%= borough %>
+              </div>
+          <% end %>
+          </div>
 
-    <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
-    <%= f.label "When would you like to help?" %><br>
-    <% Date.today.upto(Date.today.next_day(6)).each do |day| %>
-      <%= radio_button "volunteer", "datetime", day %><%= day.strftime("%B %d, %Y") %><br>
-    <% end %>
-    </div>
-
-    <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
-    <%= f.label "What skills do you have?" %><br>
-    <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name %>
-    <br>
-    <%= f.submit "Update Details" %>
-    </div>
+      <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
+      <br>
+      <%= f.label "When would you like to help?" %><br>
+      <% Date.today.upto(Date.today.next_day(6)).each do |day| %>
+        <%= radio_button "volunteer", "datetime", day %><%= day.strftime("%B %d, %Y") %><br>
+      <% end %>
+      </div>
+        
+      <div class="col-md-12 col-sm-6 wow fadeIn" data-wow-delay=".2s">
+      <br/>
+      <%= f.label "What skills do you have?" %><br>
+      <%= f.collection_check_boxes :skill_ids, Skill.all, :id, :name %>
+      <br><br>
+      <%= f.submit "Update Details" %>
+      <br/><br/>
+      </div>
   <% end %>
 <%= render 'center_close' %>
