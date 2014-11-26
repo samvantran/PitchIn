@@ -22,8 +22,18 @@ class VolunteersController < ApplicationController
 
   def options
     @volunteer = Volunteer.find(session[:volunteer_id])
+    @volunteer.update(volunteer_params)
     @opportunities = Opportunity.all
     @matches = get_matching_opportunities(@volunteer, @opportunities)
+
+    case @matches.size
+    when 3
+      @columns = 4
+    when 2
+      @columns = 6
+    else 
+      @columns = 12
+    end
   end
 
   def show

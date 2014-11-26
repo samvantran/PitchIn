@@ -7,7 +7,6 @@ class Volunteer < ActiveRecord::Base
 
 
   def self.find_or_create_from_auth_hash(auth_hash)
-    binding.pry
     find_by_omniauth(auth_hash) || create_with_omniauth(auth_hash)
   end
 
