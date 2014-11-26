@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
+//= require opportunities
 //= require js/plugins/jquery.magnific-popup/jquery.magnific-popup
 //= require js/plugins/owl-carousel/owl.carousel
 //= require js/plugins/wow/wow
@@ -22,8 +24,6 @@
 //= require js/plugins/jquery.mixitup
 //= require js/contact_me
 //= require js/vitality
-//= require js/jquery
-//= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
 

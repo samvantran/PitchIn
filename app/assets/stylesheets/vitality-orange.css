@@ -206,6 +206,11 @@ hr.colored {
     .navbar-fixed-top.navbar-expanded {
         padding: 30px 0;
     }
+/*my addition */
+    .navbar-bg{
+        background: #000;
+    }
+
 
     .navbar-fixed-top {
         padding: 15px 0;
