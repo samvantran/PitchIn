@@ -37,8 +37,8 @@ class VolunteersController < ApplicationController
   end
 
   def show
-    #@volunteer = Volunteer.find(session[:volunteer_id])
-    @volunteer = Volunteer.find(params[:id])
+    @volunteer = Volunteer.find(session[:volunteer_id])
+    #@volunteer = Volunteer.find(params[:id])
   end
 
   def final
