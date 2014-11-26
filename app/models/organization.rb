@@ -12,7 +12,8 @@ class Organization < ActiveRecord::Base
     create(
             :uid      => auth_hash[:uid],
             :provider => auth_hash[:provider],
-            :name     => auth_hash[:info][:name]
+            :name     => auth_hash[:info][:name],
+            :photo    => auth_hash[:info][:image]
           )
   end
 

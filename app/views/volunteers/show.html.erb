@@ -1,5 +1,7 @@
+
 <%= render 'center' %>
   <h3>Hi <%= @volunteer.name %></h3>
+  <%= image_tag @volunteer.photo %>
 
   <% if @volunteer.opportunity != nil %>
 

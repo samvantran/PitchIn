@@ -7,14 +7,17 @@ class Volunteer < ActiveRecord::Base
 
 
   def self.find_or_create_from_auth_hash(auth_hash)
+    binding.pry
     find_by_omniauth(auth_hash) || create_with_omniauth(auth_hash)
   end
 
   def self.create_with_omniauth(auth_hash)
+
     create(
             :uid      => auth_hash[:uid],
             :provider => auth_hash[:provider],
-            :name     => auth_hash[:info][:name]
+            :name     => auth_hash[:info][:name],
+            :photo    => auth_hash[:info][:image]
           )
   end
 

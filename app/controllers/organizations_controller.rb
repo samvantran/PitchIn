@@ -12,7 +12,7 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    @organization = Organization.find(params[:organization_id])
+    @organization = Organization.find(params[:id])
   end
 
   def create
